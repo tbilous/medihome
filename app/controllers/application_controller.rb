@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
   before_action :debug_locale if Rails.env.test? || Rails.env.development?
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def set_locale
     I18n.locale = (extract_locale_header == ('uk' || 'ru') ? 'ru' : 'en')
@@ -20,5 +21,11 @@ class ApplicationController < ActionController::Base
 
   def extract_locale_header
     request.env['HTTP_ACCEPT_LANGUAGE'].to_s.scan(/^[a-z]{2}/).first
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 end
