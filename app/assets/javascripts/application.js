@@ -22,3 +22,7 @@ $(document).on('turbolinks:load', function () {
     $('.materialize-textarea').trigger('autoresize');
     Materialize.updateTextFields();
 });
+
+alertFunc = function (message, color) {
+    Materialize.toast(message, 4000, color);
+};

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def set_locale
-    I18n.locale = (extract_locale_header == ('uk' || 'ru') ? 'ru' : 'en')
+    I18n.locale = (extract_locale_header == 'uk' ? 'uk' : 'en')
   end
 
   def debug_locale

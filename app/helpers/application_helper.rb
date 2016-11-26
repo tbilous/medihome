@@ -40,6 +40,15 @@ module ApplicationHelper
 
   def render_errors_for(resource)
     return unless resource.errors.any?
-    flash.now.alert = resource.errors.full_messages.join(', ')
+    flash.now.alert = resource.errors.full_messages.join('<br/> ')
+    message = resource.errors.full_messages.join(', ')
+    javascript_tag("alertFunc(('#{message}'), 'red')")
+    # binding.pry
+  end
+
+  def render_form_errors(resource)
+    return unless resource.errors.any?
+    message = resource.errors.full_messages.join('<br/> ')
+    javascript_tag("alertFunc(('#{message}'), 'red')")
   end
 end

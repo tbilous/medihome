@@ -1,22 +1,24 @@
-- provide(:title, t('page.sign_in'))
-h2 Log in
+- provide(:title, t('.sign_in'))
 .row
-  .col.m8.offset-m2
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .row
-        .col.input-field.s12
-          = f.email_field :email, autofocus: true, class: 'validate'
-          = f.label :email
-      .row
-        .col.input-field.s12
-          = f.password_field :password, autocomplete: 'off'
-          = f.label :password
-      p
-        = f.check_box :remember_me
-        = f.label :remember_me
-
-      .row
-        .col.s6
-          = f.submit t('devise.sessions.new.sign_in'), class: 'waves-effect waves-light btn'
-        .col.s6.right.right-align
-          = render 'devise/shared/links'
+  .col.m8.offset-m2.s12
+    .card
+      = form_for(resource, as: resource_name, html: { class: 'card-content' }, url: session_path(resource_name)) do |f|
+        = render_form_errors(resource)
+        .row
+          .col.input-field.s12
+            = f.email_field :email, autofocus: true, class: 'validate'
+            = f.label :email
+        .row
+          .col.input-field.s12
+            = f.password_field :password, autocomplete: 'off'
+            = f.label :password
+        
+        p
+          = f.check_box :remember_me
+          = f.label :remember_me
+        br
+        .row.center
+          .col.s12
+            = f.submit t('devise.sessions.new.sign_in'), class: 'waves-effect waves-light btn'
+          .col.s12
+            = render 'devise/shared/links'

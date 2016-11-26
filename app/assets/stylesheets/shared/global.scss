@@ -1,12 +1,12 @@
 @import "materialize/components/color";
 
-$primary-color: color("light-blue", "lighten-2") !default;
+$primary-color: color("red", "lighten-2") !default;
 
 //Customize materialize
-$h1-fontsize: 3.8rem !default;
-$h2-fontsize: 3rem !default;
-$h3-fontsize: 2.6rem !default;
-$h4-fontsize: 2.28rem !default;
+$h1-fontsize: 3rem !default;
+$h2-fontsize: 2.6rem !default;
+$h3-fontsize: 2.3rem !default;
+$h4-fontsize: 2rem !default;
 $h5-fontsize: 1.64rem !default;
 $h6-fontsize: 1rem !default;
 
