@@ -21,6 +21,8 @@ gem 'faker'
 gem 'will_paginate'
 gem 'foreman', groups: 'cli'
 
+gem 'responders'
+
 # Frontend framework
 gem 'materialize-sass'
 gem 'material_icons'

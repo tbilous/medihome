@@ -43,7 +43,6 @@ module ApplicationHelper
     flash.now.alert = resource.errors.full_messages.join('<br/> ')
     message = resource.errors.full_messages.join(', ')
     javascript_tag("alertFunc(('#{message}'), 'red')")
-    # binding.pry
   end
 
   def render_form_errors(resource)

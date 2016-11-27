@@ -4,3 +4,16 @@ uk:
       sign_in: "Увійти"
       sign_out: "Вийти"
       sign_up: "Реєстрація"
+  activerecord:
+    attributes:
+      user:
+        name: "Імя"
+        password: "Пароль"
+    notices:
+      messages:
+        success:
+          create: "Something was created"
+      models:
+        user:
+          success:
+              create: "Дякуємо за реєстрацію"

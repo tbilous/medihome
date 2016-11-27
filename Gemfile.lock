@@ -277,6 +277,7 @@ DEPENDENCIES
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-controller-testing
   rails-i18n
+  responders
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver

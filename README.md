@@ -1,11 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The volunteer's software application for scheduling medical appointments and registration of medicines in the home pharmacy
 
-Things you may want to cover:
 
-* Ruby version
+
+* Ruby 2.3.1, Rails 5
 
 * System dependencies
 
