@@ -10,6 +10,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'foreman', groups: 'cli'
+
 # slim
 gem 'slim'
 gem 'slim-rails'
@@ -20,11 +22,18 @@ gem 'rails-i18n'
 # authorization
 gem 'devise'
 gem 'devise-i18n'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 gem 'will_paginate'
-gem 'foreman', groups: 'cli'
 
+
+# js
+gem 'gon'
+
+# data
 gem 'responders'
+gem 'active_model_serializers'
 
 # Frontend framework
 gem 'materialize-sass'
@@ -37,6 +46,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'timecop'
 end
 
 group :development do
@@ -45,29 +55,28 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec'
+  gem 'rack-livereload'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
-  gem 'spring-commands-rspec'
   gem 'guard-bundler', require: false
+  gem 'guard-livereload', require: false
   gem 'guard-rails', require: false
   gem 'guard-rspec', require: false
   gem 'guard-spring', require: false
-  gem 'guard-livereload', require: false
-  gem 'rack-livereload'
   gem 'terminal-notifier-guard', require: false
 end
 
 group :test do
-  gem 'shoulda-matchers', '~> 3.1'
-  gem 'launchy'
   gem 'capybara'
   gem 'capybara-webkit'
-  gem 'selenium-webdriver'
-  gem 'rspec-rails'
+  gem 'capybara-email'
+  gem 'launchy'
   gem 'poltergeist'
-
+  gem 'rspec-rails'
+  gem 'selenium-webdriver', '2.53.4'
+  gem 'shoulda-matchers', '~> 3.1'
   gem 'database_cleaner'
-  gem 'email_spec'
   gem 'json_spec'
   gem 'fuubar'
   gem 'rspec-page-regression', github: 'teachbase/rspec-page-regression', branch: 'use-imatcher'

@@ -24,7 +24,7 @@ module Medihome
     end
 
     # i18 config
-    config.i18n.available_locales = [:uk, :en, :ru]
+    config.i18n.available_locales = [:uk, :en]
     config.i18n.default_locale = I18n.locale
   end
 end

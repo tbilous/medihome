@@ -3,11 +3,14 @@ require 'rspec/page-regression'
 require 'capybara/poltergeist'
 require 'rack_session_access/capybara'
 require 'puma'
+require 'capybara/email/rspec'
 # require 'selenium-webdriver'
 
 RSpec.configure do |config|
   include ActionView::RecordIdentifier
   config.include AcceptanceHelper, type: :feature
+  config.include FeatureMacros, type: :feature
+  OmniAuth.config.test_mode = true
 
   # Capybara.server_host = '0.0.0.0'
   # Capybara.server_port = 3001 + ENV['TEST_ENV_NUMBER'].to_i
@@ -20,12 +23,20 @@ RSpec.configure do |config|
       app,
       timeout: 90, js_errors: true,
       phantomjs_logger: Logger.new(STDOUT),
-      window_size: [1920, 6000]
+      window_size: [1920, 6000],
+      header:{'HTTP_ACCEPT_LANGUAGE' => 'ua'}
     )
   end
 
-  Capybara.javascript_driver = :poltergeist
-  # Capybara.javascript_driver = :selenium
+  config.include AbstractController::Translation
+  config.include I18nMacros
+
+  Capybara.ignore_hidden_elements = false
+  # Capybara.javascript_driver = :poltergeist
+  # Capybara.javascript_driver = :webkit
+  # Capybara.current_driver.header('HTTP_ACCEPT_LANGUAGE', 'zh-CN')
+  Capybara.page.driver.header('HTTP_ACCEPT_LANGUAGE', 'ua')
+  Capybara.javascript_driver = :selenium
 
   Capybara.server = :puma
 

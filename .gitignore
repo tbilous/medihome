@@ -25,3 +25,4 @@ bundler_stubs/
 backup
 config/database.yml
 config/secrets.yml
+Gemfile.lock

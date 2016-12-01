@@ -19,7 +19,7 @@
           .input-field.col.s12
             = f.password_field :password_confirmation, autocomplete: 'off'
             = f.label :password_confirmation
-          
+
         .fixed-action-btn
-          = f.button class: 'btn-floating btn-large green'
+          = f.button class: 'btn-floating btn-large green', id: 'SignUpSubmit'
             i.large.material-icons check circle
