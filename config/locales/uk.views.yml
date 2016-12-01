@@ -4,6 +4,10 @@ uk:
       sign_in: "Увійти"
       sign_out: "Вийти"
       sign_up: "Реєстрація"
+  page:
+    sign_up: "Сторінка реєстрації"
+    sign_in: "Сторінка авторизації"
+    home: "Головна"
   activerecord:
     attributes:
       user:

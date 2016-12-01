@@ -23,21 +23,24 @@ RSpec.configure do |config|
       app,
       timeout: 90, js_errors: true,
       phantomjs_logger: Logger.new(STDOUT),
-      window_size: [1920, 6000],
-      header:{'ACCEPT-LANGUAGE' => 'pt-BR'}
-      # header:{'HTTP_ACCEPT_LANGUAGE' => 'ua'}
+      window_size: [1920, 6000]
     )
+  end
+
+  config.before(:each) do
+    if Capybara.current_driver == :poltergeist
+      page.driver.headers = { 'Accept-Language' => 'en-IE' }
+    end
   end
 
   config.include AbstractController::Translation
   config.include I18nMacros
 
   Capybara.ignore_hidden_elements = false
-  # Capybara.javascript_driver = :poltergeist
+  Capybara.javascript_driver = :poltergeist
   # Capybara.javascript_driver = :webkit
-  # Capybara.current_driver.header('HTTP_ACCEPT_LANGUAGE', 'zh-CN')
-  Capybara.page.driver.header('HTTP_ACCEPT_LANGUAGE', 'ua')
-  Capybara.javascript_driver = :selenium
+  # Capybara.javascript_driver = :selenium
+  Capybara.page.driver.header('HTTP_ACCEPT_LANGUAGE', 'en')
 
   Capybara.server = :puma
 

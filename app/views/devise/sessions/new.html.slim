@@ -1,4 +1,4 @@
-- provide(:title, t('.sign_in'))
+- provide(:title, t('page.sign_in'))
 .row
   .col.m8.offset-m2.s12
     .card
@@ -19,6 +19,6 @@
         br
         .row.center
           .col.s12
-            = f.submit t('devise.sessions.new.sign_in'), class: 'waves-effect waves-light btn', id: 'SignInSubmit'
+            = f.submit t('devise.sessions.new.sign_in'), class: 'waves-effect waves-light btn'
           .col.s12
             = render 'devise/shared/links'

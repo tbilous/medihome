@@ -14,7 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require materialize-sprockets
+//= require i18n
+//= require i18n/translations
 //= require_tree .
+
+$(document).ready(function() {
+  locale = $('body').data('lang')
+  I18n.locale = locale
+})
 
 $(document).on('turbolinks:load', function () {
     $(".dropdown-button").dropdown();

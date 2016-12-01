@@ -30,6 +30,7 @@ gem 'will_paginate'
 
 # js
 gem 'gon'
+gem "i18n-js", ">= 3.0.0.rc11"
 
 # data
 gem 'responders'

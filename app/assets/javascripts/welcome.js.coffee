@@ -5,6 +5,8 @@ ready = ->
     debugger
     $(questionForm)[0].reset();
     window.location.href = "/"
+    message = I18n.t('devise.registrations.signed_up')
+    App.utils.successMessage(message)
 
   questionForm.on 'ajax:error', (e, data, status, xhr) ->
     $.map(data.responseJSON['errors'], (v, k) ->

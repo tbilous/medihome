@@ -1,29 +1,4 @@
-- provide(:title, t('.sign_up'))
-/ .row
-/   .col.m8.offset-m2.s12
-/     .card
-/       = form_for(resource, as: resource_name, url: registration_path(resource_name), data: { type: 'json' }, html: { class: 'card-content' }) do |f|
-/         = render_form_errors(resource)
-/         .row
-/           .input-field.col.s12
-/             = f.text_field :email, autofocus: true
-/             = f.label :email
-/         .row
-/           .input-field.col.s12
-/             = f.text_field :name
-/             = f.label :name
-/         .row
-/           .input-field.col.s12
-/             = f.password_field :password, autocomplete: 'off'
-/             = f.label :password
-/         .row
-/           .input-field.col.s12
-/             = f.password_field :password_confirmation, autocomplete: 'off'
-/             = f.label :password_confirmation
-/             
-/         .fixed-action-btn
-/           =f.button class: 'btn-floating btn-large green' do
-/             i.large.material-icons check circle
+- provide(:title, t('page.sign_up'))
 
 = render 'shared/form_signup'
 = render 'shared/back_btn'

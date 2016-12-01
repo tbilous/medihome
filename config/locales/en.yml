@@ -20,14 +20,4 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  sign_in: "Sign In"
-  sign_out: "Sign out"
-  sign_up: "Sign Up"
   hello: "Hello world"
-  layouts:
-    header:
-      sign_in: "Sign In"
-      sign_out: "Sign out"
-      sign_up: "Sign Up"
-  page:
-    registration: "Registration page"
