@@ -24,7 +24,8 @@ RSpec.configure do |config|
       timeout: 90, js_errors: true,
       phantomjs_logger: Logger.new(STDOUT),
       window_size: [1920, 6000],
-      header:{'HTTP_ACCEPT_LANGUAGE' => 'ua'}
+      header:{'ACCEPT-LANGUAGE' => 'pt-BR'}
+      # header:{'HTTP_ACCEPT_LANGUAGE' => 'ua'}
     )
   end
 
