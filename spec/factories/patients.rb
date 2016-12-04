@@ -3,6 +3,6 @@ FactoryGirl.define do
     name  Faker::Name.name
     birth Faker::Date.between(60.years.ago, 6.months.ago)
     sex   true
-    usd   true
+    usd   nil
   end
 end

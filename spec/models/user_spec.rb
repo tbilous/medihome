@@ -9,7 +9,7 @@ RSpec.describe User, type: :model do
 
     let(:patient)   { create(:patient, user: user) }
 
-    context "when user is the question's owner" do
+    context "when user is the patient's owner" do
       it { expect(user).to be_owner_of(patient) }
     end
 

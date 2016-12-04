@@ -7,7 +7,8 @@ class CreatePatients < ActiveRecord::Migration[5.0]
       t.date        :birth
       t.string      :photo
       t.boolean     :sex
-      t.boolean     :usd
+      t.boolean     :usd, default: nil
+      t.string      :comment
 
       t.timestamps
 
