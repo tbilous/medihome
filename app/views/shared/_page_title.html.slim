@@ -1,4 +1,5 @@
-.jumbotron.jumbotron__title
-  .container
-    h1
-      = yield(:title)
+.container
+  - if user_signed_in?
+    h6 = current_user.email
+  h1
+    = yield(:title)

@@ -2,8 +2,6 @@
   nav
     .nav-wrapper
       = link_to 'Medihome', root_path, class: 'brand-logo'
-      - if user_signed_in?
-        a = current_user.email
       a.button-collapse data-activates="mobile-menu" href="#"
         i.material-icons menu
       ul#nav-mobile.hide-on-med-and-down.right
