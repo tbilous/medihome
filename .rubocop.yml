@@ -30,3 +30,5 @@ Style/PercentLiteralDelimiters:
   Enabled: false
 Style/UnneededPercentQ:
   Enabled: false
+Metrics/MethodLength:
+  Enabled: false

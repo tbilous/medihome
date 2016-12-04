@@ -1,5 +1,4 @@
 module AcceptanceHelper
-
   def save_screenshot(name = nil)
     path = name || "screenshot-#{Time.now.utc.iso8601.delete('-:')}.png"
     page.save_screenshot path

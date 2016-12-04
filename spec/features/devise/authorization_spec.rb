@@ -53,7 +53,6 @@ feature 'user can login', %q{
       expect(page).to_not have_link t('layouts.header.sign_up')
       expect(page).to_not have_link t('layouts.header.sign_in')
       expect(page).to have_content t('devise.sessions.signed_in')
-
     end
 
     scenario 'Sign Out' do
