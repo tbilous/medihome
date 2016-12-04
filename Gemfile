@@ -24,6 +24,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'cancancan', '~> 1.10'
 
 gem 'will_paginate'
 

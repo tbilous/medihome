@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Patient, type: :model do
   it { should belong_to(:user) }
   it { should validate_presence_of :name }
+  it { should validate_presence_of :birth }
+  it { should validate_presence_of :sex }
 
   describe 'set_default' do
     include_context 'users'

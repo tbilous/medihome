@@ -28,6 +28,17 @@ class ApplicationController < ActionController::Base
     request.env['HTTP_ACCEPT_LANGUAGE'].to_s.scan(/^[a-z]{2}/).first
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+    respond_to do |format|
+      format.html { redirect_to root_path, alert: exception.message }
+      format.json do
+        render json: { error: 'You are not authorized to perform requested action' }.to_json,
+               status: :forbidden
+      end
+      format.js { head :forbidden }
+    end
+  end
+
   protected
 
   def configure_permitted_parameters

@@ -3,6 +3,7 @@ class Patient < ApplicationRecord
 
   validates :name, presence: true, length: 4..30
   validates :birth, presence: true
+  validates :sex, presence: true
   validates :usd, uniqueness: { scope: :user_id }, if: :usd?
 
   default_scope { order('usd DESC, created_at DESC') }
