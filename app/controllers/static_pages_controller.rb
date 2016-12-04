@@ -1,5 +1,4 @@
 class StaticPagesController < ApplicationController
-
   # authorize_resource
 
   def home

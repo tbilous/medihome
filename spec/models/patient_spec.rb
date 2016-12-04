@@ -9,7 +9,7 @@ RSpec.describe Patient, type: :model do
   describe 'set_default' do
     include_context 'users'
 
-    let(:patient)  { create(:patient, user: user) }
+    let(:patient) { create(:patient, user: user) }
     let!(:other_patient) { create(:patient, user: user) }
 
     context 'when the best answer is not defined' do

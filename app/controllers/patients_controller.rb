@@ -17,6 +17,7 @@ class PatientsController < ApplicationController
   end
 
   private
+
   def strong_params
     params.require(:patient).permit(:name, :birth, :comment, :sex)
   end
