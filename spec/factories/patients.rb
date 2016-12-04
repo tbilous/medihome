@@ -5,4 +5,10 @@ FactoryGirl.define do
     sex   true
     usd   nil
   end
+  factory :wrong_patient, class: 'Patient' do
+    name  nil
+    birth nil
+    sex   true
+    usd   nil
+  end
 end
