@@ -82,6 +82,7 @@ group :test do
   gem 'fuubar'
   gem 'rspec-page-regression', github: 'teachbase/rspec-page-regression', branch: 'use-imatcher'
   gem 'rack_session_access'
+  gem 'zonebie'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

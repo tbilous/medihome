@@ -26,5 +26,7 @@ module Medihome
     # i18 config
     config.i18n.available_locales = [:uk, :en]
     config.i18n.default_locale = I18n.locale
+    # Time zone
+    config.time_zone = 'Kyiv'
   end
 end

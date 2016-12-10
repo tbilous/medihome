@@ -8,6 +8,20 @@ RSpec.describe PatientsController, type: :controller do
   end
 
   let(:patient) { create(:patient, user: user) }
+  let(:form_params) { {} }
+
+  describe 'eq time zone' do
+    include_context 'authorized user'
+
+    before { Zonebie.set_random_timezone }
+    it do
+      post :create, params: { patient: attributes_for(:patient) }, format: :json
+      Timecop.freeze
+      patient = Patient.last
+      expect(patient.created_at.utc.to_s).to eq(Time.current.utc.to_s)
+    end
+  end
+
   #   describe 'GET #index' do
   #     let(:questions) { create_list(:question, 2) }
   #     before { get :index }
@@ -84,44 +98,34 @@ RSpec.describe PatientsController, type: :controller do
   #
   #   describe 'GET #edit' do
   #   end
+
   describe 'POST #create' do
     let(:params) do
       {
-        patient: attributes_for(:patient)
+        patient: attributes_for(:patient).merge(form_params)
       }
     end
 
-    context 'user is not authorized' do
-      it 'add to database' do
-        expect { post :create, params: params }.to_not change(Patient, :count)
-      end
-      it 'redirect to show' do
-        post :create, params: params
-        expect(response).to redirect_to new_user_session_path
-      end
+    subject { post :create, params: params }
+
+    it_behaves_like 'when user is unauthorized' do
+      it { expect { subject }.to_not change(Patient, :count) }
+      it { expect(subject).to redirect_to new_user_session_path }
     end
-    context 'user is authorized' do
-      before { sign_in john }
 
-      describe 'POST #create' do
-        context 'attr is valid' do
-          it 'add to database' do
-            expect { post :create, params: params, format: :json }.to change(john.patients, :count).by(1)
-          end
-        end
+    it_behaves_like 'when user is authorized' do
+      it { expect { subject }.to change(Patient, :count) }
 
-        context 'attr is not valid' do
-          let(:wrong_params) do
-            {
-              patient: attributes_for(:wrong_patient),
-              format: :js
-            }
-          end
+      it_behaves_like 'invalid params concern', 'empty name', model: Patient do
+        let(:form_params) { { name: nil } }
+      end
 
-          it 'does not add to database' do
-            expect { post :create, params: wrong_params, format: :json }.to_not change(Patient, :count)
-          end
-        end
+      it_behaves_like 'invalid params concern', 'empty sex', model: Patient do
+        let(:form_params) { { sex: nil } }
+      end
+
+      it_behaves_like 'invalid params concern', 'empty birth', model: Patient do
+        let(:form_params) { { birth: nil } }
       end
     end
   end

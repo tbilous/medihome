@@ -2,6 +2,7 @@ require 'rubygems'
 require 'database_cleaner'
 require 'capybara/rspec'
 require 'cancan/matchers'
+require 'zonebie/rspec'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)

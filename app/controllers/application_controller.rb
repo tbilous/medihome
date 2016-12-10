@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
   before_action :debug_locale if Rails.env.test? || Rails.env.development?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  around_action :with_time_zone, if: 'current_user.try(:time_zone)'
+
   def set_locale
     I18n.locale = extract_locale_header == 'uk' ? 'uk' : 'en'
   end
@@ -39,7 +41,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
   protected
+
+  def with_time_zone(&block)
+    time_zone = current_user.time_zone
+    logger.debug "Used user's time zone: #{time_zone}"
+    Time.use_zone(time_zone, &block)
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
