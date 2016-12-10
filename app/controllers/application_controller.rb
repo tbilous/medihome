@@ -41,7 +41,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
   protected
 
   def with_time_zone(&block)

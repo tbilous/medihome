@@ -7,7 +7,6 @@ class Ability
     alias_action :update, :destroy, to: :modify
     alias_action :show, :index, to: :see
     user ? user_abilities(user) : guest_abilities
-
   end
 
   def guest_abilities

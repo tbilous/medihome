@@ -32,3 +32,5 @@ Style/UnneededPercentQ:
   Enabled: false
 Metrics/MethodLength:
   Enabled: false
+Style/MultilineBlockChain:
+  Enabled: false

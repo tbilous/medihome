@@ -47,7 +47,7 @@ end
 
 shared_examples 'when user is unauthorized' do
   include_context 'unauthorized user'
-  end
+end
 
 shared_examples 'when user not is owner' do
   include_context 'unauthorized user'

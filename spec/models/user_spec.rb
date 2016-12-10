@@ -7,8 +7,7 @@ RSpec.describe User, type: :model do
 
   include_context 'users'
   describe '#owner?' do
-
-    let(:patient)   { create(:patient, user: user) }
+    let(:patient) { create(:patient, user: user) }
 
     context "when user is the patient's owner" do
       it { expect(user).to be_owner_of(patient) }
@@ -17,11 +16,9 @@ RSpec.describe User, type: :model do
     context "when user is not the patient's owner" do
       it { expect(john).to_not be_owner_of(patient) }
     end
-
-
   end
   describe 'depend destroy' do
-    let!(:patient) { create(:patient, user: user)}
+    let!(:patient) { create(:patient, user: user) }
     it { expect { user.destroy }.to change { Patient.count } }
   end
 end
