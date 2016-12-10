@@ -1,7 +1,12 @@
 .navbar-fixed
   nav
     .nav-wrapper
-      = link_to 'Medihome', root_path, class: 'brand-logo'
+      = link_to image_tag('logo_opt.png', alt: 'Medihome', class: 'responsive-img'), root_path, id: 'logo'
+      = link_to root_path, class: 'brand-logo' do
+        -if user_signed_in?
+          = current_user.name
+        -else
+          span Medihome
       a.button-collapse data-activates="mobile-menu" href="#"
         i.material-icons menu
       ul#nav-mobile.hide-on-med-and-down.right

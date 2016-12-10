@@ -19,7 +19,7 @@
 //= require_tree .
 
 $(document).ready(function() {
-  locale = $('body').data('lang')
+  locale = $('body').data('lang');
   I18n.locale = locale
 })
 
@@ -28,6 +28,11 @@ $(document).on('turbolinks:load', function () {
     $(".button-collapse").sideNav();
     $('.materialize-textarea').trigger('autoresize');
     Materialize.updateTextFields();
+
+    // $('.datepicker').pickadate({
+    //     selectMonths: true, // Creates a dropdown to control month
+    //     selectYears: 15 // Creates a dropdown of 15 years to control year
+    // });
 });
 
 alertFunc = function (message, color) {

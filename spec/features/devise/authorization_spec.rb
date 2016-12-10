@@ -57,6 +57,7 @@ feature 'user can login', %q{
 
     scenario 'Sign Out' do
       sign_in(user)
+      # noinspection RubyArgCount
       sign_out
       expect(page).to have_content t('devise.sessions.signed_out')
     end
