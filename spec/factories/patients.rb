@@ -8,7 +8,7 @@ FactoryGirl.define do
   factory :wrong_patient, class: 'Patient' do
     name  nil
     birth nil
-    sex   true
+    sex   nil
     usd   nil
   end
 end
